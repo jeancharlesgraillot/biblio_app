@@ -166,6 +166,24 @@ class BookManager
 	}
 
 	/**
+	 * Update book disponibility
+	 *
+	 * @param Book $book
+	 * @return void
+	 */
+	public function updateBookDisponibilityAndUserId($id, $user_id, $disponibility)
+	{
+		$id = (int)$id;
+		$user_id = (int)$user_id;
+		$disponibility = (int)$disponibility;
+		$query = $this->getDb()->prepare('UPDATE books SET user_id = :user_id, disponibility = :disponibility WHERE id = :id');
+		$query->bindValue("id", $id, PDO::PARAM_INT);
+        $query->bindValue("user_id", $user_id, PDO::PARAM_INT);
+        $query->bindValue("disponibility", $disponibility, PDO::PARAM_INT);
+        $query->execute(); 
+	}
+
+	/**
 	 * Delete account
 	 *
 	 * @param integer $id

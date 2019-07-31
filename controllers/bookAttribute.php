@@ -27,29 +27,13 @@ $db = Database::Db();
 
 $bookManager = new BookManager($db);
 
-$userManager = new UserManager($db);
 
-$id = intval($_GET['id']);
-
-$books = $bookManager->getBookAndLinkedAttributesById($id);
-
-$users = $userManager->getUsers();
-
-if (isset($_POST['attribute'])) 
-{
-     if (isset($POST['userSelect']) && !empty($_POST['userSelect'])) {
-         $id_user = intval($_POST['userSelect']);
-         var_dump($id_user);
-     }
+if (isset($_POST['userId']) and isset($_POST['bookId'])) {
+    $userId = (int)$_POST['userId'];
+    $bookId = (int) $_POST['bookId'];
 }
-
-
-
-
-
-
-
-
+$bookManager->updateBookDisponibilityAndUserId($bookId, $userId, 0);
+header('location: bookDetails.php?id=' . $bookId);
 
 
 include "../views/bookDetailsView.php";

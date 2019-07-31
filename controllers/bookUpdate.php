@@ -88,7 +88,6 @@ if (isset($_POST['bookUpdate']))
                 'author' => $author,
                 'release_date' => $release_date,
                 'description' => $description,
-                'disponibility' => 1,
                 'category_id' => $category_id,
                 'image_id' => $image_id,
                 'id' => $id

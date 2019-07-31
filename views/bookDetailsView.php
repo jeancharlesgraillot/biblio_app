@@ -54,21 +54,31 @@ foreach ($books[0] as $book) {
 			<input type="submit" name="bookDelete" value="Supprimer" class="btn btn-danger my-3">
 		</form>
 
-
-    <form class="bookAttribute text-center col-12 col-md-6 col-lg-3" method="post" action="bookDetails.php" class="text-center col-12 col-md-6 col-lg-3">
-      
-          <label for="users">Attribuer à</label><br />
-          <select name="users" id="users">
-              <option value="">Didier</option>
-          </select>
-     
-        <input type="submit" name="add" value="Envoyer" class="btn btn-secondary my-3">
-    
+    <?php
+    if ($book->getDisponibility() == 1) 
+    {
+    ?>
+    <form class="bookAttribute text-center col-12 col-md-6 col-lg-3" method="post" action="bookAttribute.php" class="text-center col-12 col-md-6 col-lg-3">
+        <input type="hidden" name="bookId" value="<?php echo $book->getId(); ?>">
+        <button type="submit" name="attribute" class="btn btn-success my-3">Attribuer à</button>
+        <select class="form-control" name="userId" id="userId">
+        <option value="" disabled selected>Choisissez l'emprunteur</option>
+          <?php 
+          foreach ($users as $user) 
+          {
+          ?>
+            <option value="<?php echo $user->getId_user();?>"><?php echo $user->getFirstname() . " " . $user->getLastname(); ?></option>
+          <?php
+          }
+          ?>
+        </select>
     </form>
-
+    <?php
+    }
+    ?>
     <form class="bookRestitute text-center col-12 col-md-6 col-lg-3" action="bookDetails.php" method="post">
 			<input type="hidden" name="id" value=""  required>
-			<input type="submit" name="restitute" value="Restituer" class="btn btn-secondary my-3">
+			<button type="submit" name="restitute" class="btn btn-warning my-3 text-white">Restituer</button>
 		</form>
 <?php
 }
