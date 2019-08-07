@@ -88,6 +88,19 @@ class BookManager
 
 	}
 
+	public function getBooksByUserId(int $user_id)
+	{	
+		$arrayOfBooks = [];
+		$query = $this->getDb()->prepare('SELECT * FROM books WHERE user_id = :user_id');
+		$query->bindValue("user_id", $user_id, PDO::PARAM_INT);
+		$query->execute();
+		$books = $query->fetchAll(PDO::FETCH_ASSOC);
+		foreach ($books as $book) {
+			$arrayOfBooks[] = new Book($book);
+		}
+		return $arrayOfBooks;
+	}
+
 	/**
 	 * Get a book by id
 	 *
@@ -196,5 +209,14 @@ class BookManager
 		$query = $this->getDb()->prepare('DELETE FROM books WHERE id = :id');
 		$query->bindValue("id", $id, PDO::PARAM_INT);		
 		$query->execute();
+	}
+
+	public function countBooks(int $user_id)
+	{
+		$query = $this->getDb()->prepare('SELECT COUNT(*) as total FROM books WHERE user_id = :user_id');
+		$query->bindValue("user_id", $user_id, PDO::PARAM_INT);
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+		return $result;
 	}
 }

@@ -27,9 +27,15 @@ $db = Database::Db();
 
 $userManager = new UserManager($db);
 
-$id = intval($_GET['id']);
+$bookManager = new BookManager($db);
 
-$user = $userManager->getUser($id);
+$user_id = intval($_GET['id']);
+
+$user = $userManager->getUser($user_id);
+
+$borrowedBooks = $bookManager->countBooks($user_id);
+
+$books = $bookManager->getBooksByUserId($user_id);
 
 
 
