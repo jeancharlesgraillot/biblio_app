@@ -5,7 +5,7 @@
 
 <h2 class="text-center mt-5">Liste des utilisateurs</h2>
 
-<div class="userAdd text-center my-3">
+<div class="userAdd text-center my-5">
     <a href="userAdd.php">
         <button type="button" class="btn btn-primary my-3">Ajouter un Utilisateur</button>
     </a>

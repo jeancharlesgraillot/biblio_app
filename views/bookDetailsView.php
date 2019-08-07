@@ -4,7 +4,8 @@
 
 <div class="container mt-5">
 <?php
-foreach ($books[0] as $book) {
+foreach ($books[0] as $book) 
+{
 ?>
   <div class="row">
 
@@ -44,24 +45,24 @@ foreach ($books[0] as $book) {
 
   <div class="row mt-5">
 
-    <form class="bookUpdate text-center col-12 col-md-6 col-lg-3" action="bookUpdate.php?id=<?php echo $book->getId(); ?>" method="post">
-			<input type="hidden" name="idBookUpdate" value="<?php echo $book->getId() ?>"  required>
-			<input type="submit" name="bookUpdate" value="Modifier" class="btn btn-primary my-3">
+    <form class="bookUpdate text-center col-12 col-md-6 col-lg-3" method="post" action="bookUpdate.php?id=<?php echo $book->getId(); ?>">
+			<input type="hidden" name="idBookUpdate" value="<?php echo $book->getId(); ?>"  required>
+			<button type="submit" name="bookUpdate" class="btn btn-primary my-3">Modifier</button>
 		</form>
 
-    <form class="bookDelete text-center col-12 col-md-6 col-lg-3" action="bookDelete.php" method="post">
-			<input type="hidden" name="idBookDelete" value="<?php echo $book->getId() ?>"  required>
-			<input type="submit" name="bookDelete" value="Supprimer" class="btn btn-danger my-3">
+    <form class="bookDelete text-center col-12 col-md-6 col-lg-3" method="post" action="bookDelete.php">
+			<input type="hidden" name="idBookDelete" value="<?php echo $book->getId(); ?>"  required>
+			<button type="submit" name="bookDelete" class="btn btn-danger my-3">Supprimer</button>
 		</form>
-
+    
     <?php
     if ($book->getDisponibility() == 1) 
     {
     ?>
     <form class="bookAttribute text-center col-12 col-md-6 col-lg-3" method="post" action="bookAttribute.php" class="text-center col-12 col-md-6 col-lg-3">
-        <input type="hidden" name="bookId" value="<?php echo $book->getId(); ?>">
-        <button type="submit" name="attribute" class="btn btn-success my-3">Attribuer à</button>
-        <select class="form-control" name="userId" id="userId">
+        <input type="hidden" name="idBookAttribute" value="<?php echo $book->getId(); ?>" required>
+        <button type="submit" name="bookAttribute" class="btn btn-success my-3">Attribuer à</button>
+        <select class="form-control" name="idUserAttribute">
         <option value="" disabled selected>Choisissez l'emprunteur</option>
           <?php 
           foreach ($users as $user) 
@@ -74,12 +75,16 @@ foreach ($books[0] as $book) {
         </select>
     </form>
     <?php
+    }else
+    {
+    ?>
+    <form class="bookRestitute text-center col-12 col-md-6 col-lg-3" action="bookRestitute.php" method="post">
+			<input type="hidden" name="idBookRestitute" value="<?php echo $book->getId(); ?>"  required>
+			<button type="submit" name="bookRestitute" class="btn btn-warning my-3 text-white">Restituer</button>
+		</form>
+    <?php
     }
     ?>
-    <form class="bookRestitute text-center col-12 col-md-6 col-lg-3" action="bookDetails.php" method="post">
-			<input type="hidden" name="id" value=""  required>
-			<button type="submit" name="restitute" class="btn btn-warning my-3 text-white">Restituer</button>
-		</form>
 <?php
 }
 ?>

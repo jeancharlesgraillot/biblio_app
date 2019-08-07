@@ -137,11 +137,8 @@ class BookManager
         $query->bindValue("id", $id, PDO::PARAM_INT);
         $query->execute();
         
-
-        // $dataCharacter is an associative array which contains informations of a user
         $dataBook = $query->fetch(PDO::FETCH_ASSOC);
 
-        // We create a new User object with the associative array $dataCharacter and we return it
         $book = new Book($dataBook);
         return $book;
         
@@ -174,7 +171,13 @@ class BookManager
 	public function updateBookDisponibilityAndUserId($id, $user_id, $disponibility)
 	{
 		$id = (int)$id;
-		$user_id = (int)$user_id;
+		if ($user_id == 0) 
+		{
+			$user_id == null;
+		}else
+		{
+			$user_id = (int)$user_id;
+		}
 		$disponibility = (int)$disponibility;
 		$query = $this->getDb()->prepare('UPDATE books SET user_id = :user_id, disponibility = :disponibility WHERE id = :id');
 		$query->bindValue("id", $id, PDO::PARAM_INT);

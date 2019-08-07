@@ -22,7 +22,7 @@
 <div class="navbar-responsive">
   <nav class="text-center">
     <div class="my-3">
-      <p><a class="scroll" href="index.php">Accueil</a></p>
+      <p><a class="scroll" href="index.php">Accueil / Liste des livres</a></p>
       <p><a class="scroll" href="usersList.php">Utilisateurs</a></p>
       <form action="deconnexion.php" method="post" class="d-inline">
         <input type="submit" name="deconnexion" value="Déconnexion" class="btn btn-danger">
@@ -39,7 +39,7 @@
       <div class="navbar col-3 col-lg-8">
         <nav class="d-none d-lg-block ml-auto">
           <div>
-            <p class="d-inline "><a class="scroll" href="index.php">Accueil</a></p>
+            <p class="d-inline "><a class="scroll" href="index.php">Accueil / Liste des livres</a></p>
             <p class="d-inline ml-3"><a class="scroll" href="usersList.php">Utilisateurs</a></p>
         
             <form action="deconnexion.php" method="post" class="d-inline ml-3">
