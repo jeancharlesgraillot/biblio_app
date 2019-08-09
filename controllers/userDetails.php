@@ -33,7 +33,7 @@ $user_id = intval($_GET['id']);
 
 $user = $userManager->getUser($user_id);
 
-$borrowedBooks = $bookManager->countBooks($user_id);
+$borrowedBooks = intval($bookManager->countBooks($user_id)['total']);
 
 $books = $bookManager->getBooksByUserId($user_id);
 

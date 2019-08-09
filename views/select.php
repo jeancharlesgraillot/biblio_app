@@ -11,10 +11,10 @@
 
       <div class="row">
 
-         <form class="selectBooksByCategory text-center col-12 col-lg-6 mx-auto" method="post" action="index.php">
+         <form class="selectBooksByCategory text-center col-12 col-md-6 col-lg-4 mx-auto" method="post" action="index.php">
                <div class="form-group d-flex justify-content-center">
                   <select class="form-control" name="categorySelect">
-                  <option value="" disabled selected>Choisissez une catégorie</option>
+                  <option value="" disabled selected>Choisissez la catégorie</option>
                      <?php 
                      foreach ($categories as $category) 
                      {
@@ -25,7 +25,6 @@
                      ?>
                   </select>
                   <button class="btn btn-success ml-3" type="submit" name="selectBooksByCategory">Trier</button>
-                  <a href="index.php" class="btn btn-warning text-white ml-3">Tous les livres</a>
                </div>
          </form>
 
@@ -52,7 +51,7 @@
             {
             ?>
       
-               <div class="col-12 col-md-6 col-lg-3 no-link-style">
+               <div class="card-to-anime col-12 col-md-6 col-lg-3 ">
                   <a href="bookDetails.php?id=<?php echo $book->getId() ?>">
                      <div class="card mb-3 text-white bg-dark">
                         <div class="card-body text-center" >
@@ -85,7 +84,7 @@
             foreach ($books[0] as $book) 
             {
             ?>
-               <div class="col-12 col-md-6 col-lg-3 no-link-style">
+               <div class="card-to-anime col-12 col-md-6 col-lg-3 ">
                   <a href="bookDetails.php?id=<?php echo $book->getId() ?>">
                      <div class="card mb-3 text-white bg-dark">
                         <div class="card-body text-center" >

@@ -88,6 +88,34 @@ class BookManager
 
 	}
 
+	public function getBooksByCategoryName($name)
+	{	
+		$arrays = [];
+		$arrayOfBooks = [];
+		$arrayOfImages = [];
+		$query = $this->getDb()->prepare('SELECT * FROM books 
+		LEFT JOIN categories ON books.category_id = categories.id_category
+		LEFT JOIN images ON books.image_id = images.id_image
+		WHERE name = :name');
+		$query->bindValue("name", $name, PDO::PARAM_STR);
+		$query->execute();
+		$books = $query->fetchAll(PDO::FETCH_ASSOC);
+		foreach ($books as $book) {
+			$arrayOfBooks[] = new Book($book);
+			$arrayOfImages[] = new Image($book);
+		}
+		$arrays[] = $arrayOfBooks;
+		$arrays[] = $arrayOfImages;
+		return $arrays;
+	}
+
+	
+	/**
+	 * Get all books a user has borrowed
+	 *
+	 * @param integer $user_id
+	 * @return $array
+	 */
 	public function getBooksByUserId(int $user_id)
 	{	
 		$arrayOfBooks = [];
@@ -105,7 +133,7 @@ class BookManager
 	 * Get a book by id
 	 *
 	 * @param integer $id
-	 * @return Book
+	 * @return $array
 	 */
 	public function getBookAndLinkedAttributesById(int $id)
 	{
@@ -211,6 +239,12 @@ class BookManager
 		$query->execute();
 	}
 
+	/**
+	 * Count all books a user has borrowed
+	 *
+	 * @param integer $user_id
+	 * @return void
+	 */
 	public function countBooks(int $user_id)
 	{
 		$query = $this->getDb()->prepare('SELECT COUNT(*) as total FROM books WHERE user_id = :user_id');

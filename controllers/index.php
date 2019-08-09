@@ -27,7 +27,12 @@ $db = Database::Db();
 
 $bookManager = new BookManager($db);
 
+$categoryManager = new CategoryManager($db);
+
 $books = $bookManager->getBooks();
+
+$categories = $categoryManager->getCategories();
+
 
 
 

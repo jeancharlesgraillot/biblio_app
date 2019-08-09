@@ -35,6 +35,7 @@ $books = $bookManager->getBookAndLinkedAttributesById($id);
 
 $users = $userManager->getUsers();
 
+// $borrowedBooks = intval($bookManager->countBooks($user_id)['total']);
 
 include "../views/bookDetailsView.php";
  ?>

@@ -28,6 +28,7 @@ if (isset($_SESSION['name'])) {
 $db = Database::DB();
 
 $userManager = new UserManager($db);
+$bookManager = new BookManager($db);
 
 //Suppression d'un utilisateur
 if(isset($_POST['delete'])){

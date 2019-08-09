@@ -4,30 +4,36 @@
 
 <div class="container mt-5">
 
-    <div class="row ">
+    <div class="row justify-content-around">
 
-        <div class="col-12 col-lg-6 text-center text-md-left">
-            <p>Prénom : <?php echo $user->getFirstname(); ?></p>
-            <p>Nom : <?php echo $user->getLastname(); ?></p>
-            <p>Identifiant : <?php echo $user->getTokenId(); ?></p>
-            <p>Nombre de livre(s) emprunté(s) : <?php echo $borrowedBooks['total']; ?></p>
+        <div class="card col-12 col-lg-5 p-0 mb-4">
+            <div class="card-header">
+            Informations Utilisateur :
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Prénom : <?php echo $user->getFirstname();?></li>
+                <li class="list-group-item">Nom : <?php echo $user->getLastname();?></li>
+                <li class="list-group-item">Identifiant : <?php echo $user->getTokenId();?></li>
+                <li class="list-group-item">Nombre de livre(s) emprunté(s) : <?php echo $borrowedBooks;?></li>
+            </ul>
         </div>
 
-        <div class="booksList col-12 col-lg-6 border border-secondary">
-        
-            <ul class="pt-3">
-                <li>Livres empruntés :</li><br>
+        <div class="card col-12 col-lg-5 p-0">
+            <div class="card-header">
+                Livres empruntés :
+            </div>
+            <ul class="list-group list-group-flush">
                 <?php
                 foreach ($books as $book) 
                 {
                 ?> 
-                 <li><?php echo $book->getTitle();?></li>
+                 <li class="list-group-item"><?php echo $book->getTitle();?></li>
                 <?php
                 }
                 ?>
             </ul>
-        
         </div>
+
     </div>
 
 </div>

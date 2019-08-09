@@ -1,6 +1,10 @@
-<footer>
+  </div>
   
-</footer>
+  <footer class="mt-5 py-5 bg-dark text-center text-white">
+      <p class="m-0">Copyright Jean-Charles Graillot</p>
+  </footer>
+
+</div>
 
   <script src="https://kit.fontawesome.com/b8cb650a86.js"></script>
   <script src="../assets/js/vendor/modernizr-3.6.0.min.js"></script>
@@ -16,8 +20,8 @@
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-</body> -->
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script> -->
+</body>
 
 </html>
 
