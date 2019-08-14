@@ -24,7 +24,7 @@
                      }
                      ?>
                   </select>
-                  <button class="btn btn-success ml-3" type="submit" name="selectBooksByCategory">Trier</button>
+                  <button class="btn btn-success ml-3" type="submit" name="selectBooksByCategory"><i class="fas fa-arrow-right"></i> Trier</button>
                   <a href="index.php" class="btn btn-warning text-white ml-3">Tous les livres</a>
                </div>
          </form>

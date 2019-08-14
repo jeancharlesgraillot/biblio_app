@@ -43,7 +43,7 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg">
 
-          <a class="navbar-brand" href="#"><i class="fas fa-book-reader fa-lg mr-3"></i><span class="h2">Ma Bibliothèque</span></a>
+          <a class="navbar-brand" href="index.php"><i class="fas fa-book-reader fa-lg mr-3"></i><span class="h2">Ma Bibliothèque</span></a>
 
           <ul class="navbar-nav d-none d-lg-flex ml-auto">
               <li class="nav-item mr-2">

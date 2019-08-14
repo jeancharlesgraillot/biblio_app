@@ -89,6 +89,30 @@ class UserManager
         return $arrayOfUsers;
     }
 
+    /**
+     * Get users by lastname
+     *
+     * @return $array
+     */
+    public function getUsersByLastname()
+    {
+                // Array declaration
+        $arrayOfUsers = [];
+
+        $query = $this->getDB()->prepare('SELECT * FROM users ORDER BY lastname');
+        $query->execute();
+        $dataUsers = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        // At each loop, we create a new user object wich is stocked in our array $arrayOfUsers
+        foreach ($dataUsers as $dataUser) {
+            $arrayOfUsers[] = new User($dataUser);
+            
+        }
+
+        // Return of the array on which we could loop to list all users
+        return $arrayOfUsers;
+    }
+
         /**
      * Check if user exists or not and return a user object
      *

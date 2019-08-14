@@ -47,29 +47,33 @@
 
       <form class="bookUpdate text-center col-12 col-md-6 col-lg-3" method="post" action="bookUpdate.php?id=<?php echo $book->getId(); ?>">
         <input type="hidden" name="idBookUpdate" value="<?php echo $book->getId(); ?>"  required>
-        <button type="submit" name="bookUpdate" class="btn btn-primary my-3">Modifier</button>
-      </form>
-
-      <form class="bookDelete text-center col-12 col-md-6 col-lg-3" method="post" action="bookDelete.php">
-        <input type="hidden" name="idBookDelete" value="<?php echo $book->getId(); ?>"  required>
-        <button type="submit" name="bookDelete" class="btn btn-danger my-3">Supprimer</button>
+        <button type="submit" name="bookUpdate" class="btn btn-success my-3">Modifier</button>
       </form>
       
       <?php
       if ($book->getDisponibility() == 1) 
       {
       ?>
+
+      <form class="bookDelete text-center col-12 col-md-6 col-lg-3" method="post" action="bookDelete.php">
+        <input type="hidden" name="idBookDelete" value="<?php echo $book->getId(); ?>"  required>
+        <button type="submit" name="bookDelete" class="btn btn-danger my-3">Supprimer</button>
+      </form>
+
       <form class="bookAttribute text-center col-12 col-md-6 col-lg-3" method="post" action="bookAttribute.php">
           <input type="hidden" name="idBookAttribute" value="<?php echo $book->getId(); ?>" required>
-          <button type="submit" name="bookAttribute" class="btn btn-success my-3">Attribuer à</button>
+          <button type="submit" name="bookAttribute" class="btn btn-warning text-white my-3">Attribuer à</button>
           <select class="form-control" name="idUserAttribute">
           <option value="" disabled selected>Choisissez l'emprunteur</option>
             <?php 
             foreach ($users as $user) 
             {
+              if ($bookManager->countBooks($user->getId_user())['total'] < 3) 
+              {
             ?>
-              <option value="<?php echo $user->getId_user();?>"><?php echo $user->getFirstname() . " " . $user->getLastname(); ?></option>
+                <option value="<?php echo $user->getId_user();?>"><?php echo $user->getFirstname() . " " . $user->getLastname(); ?></option>
             <?php
+              }
             }
             ?>
           </select>

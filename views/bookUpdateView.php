@@ -77,7 +77,7 @@
         }
         ?>
       </div>
-      <button type="submit" name="bookUpdate" class="btn btn-primary" required>Mettre à jour</button>
+      <button type="submit" name="bookUpdate" class="btn btn-success" required>Mettre à jour</button>
     <?php
     }
     ?>

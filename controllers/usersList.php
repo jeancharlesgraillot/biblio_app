@@ -43,7 +43,7 @@ if(isset($_POST['delete'])){
 
 }
 
-$users = $userManager->getUsers();
+$users = $userManager->getUsersByLastname();
 
 
 

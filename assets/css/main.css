@@ -332,6 +332,18 @@ textarea {
   width: 2.5rem;
 }
 
+.bold{
+  font-weight: bold;
+}
+
+.italic{
+  font-style: italic;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
 /*Hauteur de la boîte qui contient l'image dans bookDetails*/
 .imgBox img {
   height: 250px;
