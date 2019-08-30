@@ -52,9 +52,9 @@
             {
             ?>
       
-               <div class="col-12 col-md-6 col-lg-3 no-link-style">
+               <div data-aos="zoom-in" class="col-12 col-md-6 col-lg-3 no-link-style">
                   <a href="bookDetails.php?id=<?php echo $book->getId() ?>">
-                     <div class="card mb-3 text-white bg-dark">
+                     <div class="card mb-3 text-white bg-dark mx-auto" style="max-width: 300px;">
                         <div class="card-body text-center" >
                            <h5 class="card-title mb-0"><?php echo $book->getTitle(); ?></h5>
                         </div>
@@ -85,9 +85,9 @@
             foreach ($books[0] as $book) 
             {
             ?>
-               <div class="col-12 col-md-6 col-lg-3 no-link-style">
+               <div data-aos="zoom-in" class="col-12 col-md-6 col-lg-3 no-link-style">
                   <a href="bookDetails.php?id=<?php echo $book->getId() ?>">
-                     <div class="card mb-3 text-white bg-dark">
+                     <div class="card mb-3 text-white bg-dark mx-auto" style="max-width: 300px;">
                         <div class="card-body text-center" >
                            <h5 class="card-title mb-0"><?php echo $book->getTitle(); ?></h5>
                         </div>
